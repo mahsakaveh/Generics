@@ -1,5 +1,5 @@
 ﻿namespace MyApp
-{
+{ 
     enum month{
         jan,
         feb,
@@ -8,36 +8,22 @@
         may
     }
 
-    class Person {
-        public string name;
-        public Person(string _name){
-            name = _name;
-        }
-    }
-    class DataStore<W>{
-        // public T Data { get; set; }  //prop
-        private W[] _data1 = new W[10];  //Attribute  W jense araaye _data1 e
-
-        public void AddOrUpdate(int index, W item)
-        {
-            if (index >= 0 && index < 10)
-                _data1[index]=item;
-        }
-        public W GetData(int index)  //be dast avordane data
-        {
-            return _data1[index];
-        }
-    }
-
-    class KeyValues<TKey, TValue>
-    {
-        public TKey klid { get; set; }
-        public TValue etebar { get; set; }
-    }
-
     class Program{
-        static void Main(string[] args){
-            
+        static public void Main(string[] args){
+
+      BookStore<string, string> b1= new BookStore<string, string>();
+      b1.AddOrUpdate(1,"Harry","JK");
+      b1.getBooks(1);
+
+
+            exam exam1= new exam();
+            exam1.function();
+        
+
+        
+            exam ex1=new exam();
+            ex1.show();
+
             // Person p1 = new Person("jafar")
 
             // DataStore<string> store = new DataStore<string>();
@@ -52,9 +38,9 @@
             obj1.etebar=2;
             
 
-            Console.WriteLine((int)month.apr);
+            //Console.WriteLine((int)month.apr);
             DataStore<string> _name=new DataStore<string>();
-            for(int i=0; i<10; i++)
+            for(int i=0; i<2; i++)
             {
                 string temp= Console.ReadLine();
                 _name.AddOrUpdate(i,temp);
@@ -65,7 +51,12 @@
 
            System.Console.WriteLine(_name.GetData(1)); 
 
-        
+
+           var ann_obj = new {s_id = 123, s_name = "max", language = "python"}; //anonymous Type
+           var ann_obj1= new {s_id=456, s_name="sara", language= new {lang1="C#", lang2="HTML", lang3="Java"}};
+
+           //mymethod(ann_obj);
+           //mymethod(ann_obj1);
         }
     }
 }
